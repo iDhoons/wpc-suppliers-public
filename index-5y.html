@@ -15,6 +15,7 @@ h1 { font-size: 28px; margin: 0 0 8px; }
 .ms-value { font-size: 22px; font-weight: 700; margin-top: 4px; }
 .index-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 0 0 22px; }
 .index-top a { color: #111; font-weight: 700; text-decoration: none; border-bottom: 1px solid #111; }
+.index-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .index-period { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .period-label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #666; }
 .period-sel { font-family: inherit; font-size: 15px; font-weight: 600; color: #111; background: #fff; border: 1.5px solid #111; border-radius: 2px; padding: 7px 30px 7px 12px; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%23111' stroke-width='1.6' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; }
@@ -79,7 +80,10 @@ tr:hover td { background: #fafafa; }
 <p class="sub">2021~2026 (2026-07-07 기준) &middot; 납품요구 실거래 기준 &middot; 매출 큰 순 정렬 (헤더 클릭 정렬)</p>
 <div class="index-top">
   <div class="index-period"><span class="period-label">조회 기간</span><select class="period-sel" aria-label="기간 선택" onchange="if(this.value)location.href=this.value"><option value="index.html">전체 (17년)</option><option value="index-5y.html" selected>최근 5년</option><option value="index-1y.html">2026년</option></select></div>
-  <a href="channel-structure.html">거래 구조 분석 보기</a>
+  <div class="index-links">
+    <a href="product-composition.html">제품구성 보기</a>
+    <a href="channel-structure.html">거래 구조 분석 보기</a>
+  </div>
 </div>
 <p class="basis">성장/진입 기준은 ShoppingMallPrdctInfoService 납품요구 실거래 행입니다. 카탈로그 등록일(rgstDt)이나 법인 설립일은 사용하지 않습니다.</p>
 
