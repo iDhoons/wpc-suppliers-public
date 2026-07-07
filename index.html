@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WPC 합성목재 시장조사 — 38곳 목록</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif; font-size: 16px; line-height: 1.5; color: #111; background: #f0f0f0; margin: 0; padding: 0; }
+.wrap { max-width: 1100px; margin: 24px auto; padding: 32px 28px 48px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+h1 { font-size: 28px; margin: 0 0 8px; }
+.sub { color: #666; font-size: 14px; margin: 0 0 24px; }
+.market-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 28px; }
+.ms-cell { background: #fafafa; padding: 14px; border-radius: 4px; text-align: center; }
+.ms-label { font-size: 12px; color: #666; }
+.ms-value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+.index-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 0 0 22px; }
+.index-top a { color: #111; font-weight: 700; text-decoration: none; border-bottom: 1px solid #111; }
+.index-period { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.period-label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #666; }
+.period-sel { font-family: inherit; font-size: 15px; font-weight: 600; color: #111; background: #fff; border: 1.5px solid #111; border-radius: 2px; padding: 7px 30px 7px 12px; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%23111' stroke-width='1.6' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; }
+.basis { margin: -10px 0 22px; color: #555; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { background: #fafafa; padding: 10px 8px; text-align: left; border-bottom: 2px solid #ddd; font-weight: 600; font-size: 13px; color: #666; cursor: pointer; user-select: none; }
+th:hover { background: #f0f0f0; }
+td { padding: 8px; border-bottom: 1px solid #eee; }
+tr:hover td { background: #fafafa; }
+.col-rank { width: 50px; text-align: right; color: #666; }
+.col-name a { color: #111; text-decoration: none; font-weight: 600; }
+.col-name a:hover { color: #4a78b8; text-decoration: underline; }
+.col-amt { text-align: right; font-weight: 600; }
+.col-pct, .col-num, .col-date { text-align: right; color: #555; }
+.col-anchor { font-size: 13px; color: #666; }
+.col-type { font-size: 13px; color: #333; }
+.foot { margin-top: 30px; color: #666; font-size: 12px; text-align: center; }
+.supplier-map-section { margin: 18px 0 28px; }
+.map-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 10px; }
+.map-head h2 { margin: 0; font-size: 20px; }
+.map-head .basis { margin: 0; text-align: right; }
+.map-shell { border: 1px solid #d8dde4; border-radius: 6px; overflow: hidden; background: #f8fafc; }
+.map-toolbar { min-height: 46px; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 10px; border-bottom: 1px solid #d8dde4; background: #fff; }
+.map-buttons { display: inline-flex; gap: 6px; }
+.map-control { width: 32px; height: 32px; display: inline-grid; place-items: center; border: 1px solid #111; border-radius: 4px; background: #fff; color: #111; font-size: 20px; font-weight: 800; line-height: 1; cursor: pointer; }
+.map-control:hover { background: #111; color: #fff; }
+.map-status { margin-left: auto; color: #555; font-size: 13px; text-align: right; }
+.map-status.is-error { color: #a33400; font-weight: 700; }
+.map-canvas { position: relative; height: min(62vw, 560px); min-height: 420px; overflow: hidden; background: #dbe4ec; cursor: grab; touch-action: none; user-select: none; }
+.map-canvas.is-dragging { cursor: grabbing; }
+.map-tiles, .map-markers { position: absolute; inset: 0; }
+.map-tiles { z-index: 0; pointer-events: none; }
+.map-markers { z-index: 20; pointer-events: none; }
+.map-tile { position: absolute; width: 256px; height: 256px; object-fit: cover; }
+.map-tile.is-error { background: repeating-linear-gradient(45deg, #edf2f7, #edf2f7 8px, #e2e8f0 8px, #e2e8f0 16px); }
+.map-marker { --marker-color: #174f9a; position: absolute; z-index: 20; pointer-events: auto; transform: translate(-50%, -50%); }
+.map-pin { width: 16px; height: 16px; display: block; border: 2px solid #fff; border-radius: 50%; background: var(--marker-color); box-shadow: 0 1px 5px rgba(15, 23, 42, .35); cursor: pointer; }
+.map-pin:focus-visible, .map-label:focus-visible, .map-control:focus-visible { outline: 3px solid #111; outline-offset: 2px; }
+.map-label { position: absolute; left: 14px; top: -11px; max-width: 154px; padding: 3px 7px 3px 6px; border: 1px solid rgba(15, 23, 42, .16); border-left: 4px solid var(--marker-color); border-radius: 4px; background: rgba(255, 255, 255, .94); box-shadow: 0 2px 8px rgba(15, 23, 42, .12); color: #111; font-size: 12px; font-weight: 800; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-decoration: none; }
+.map-label--hidden { display: none; }
+.map-popup { position: absolute; z-index: 40; width: min(260px, calc(100% - 18px)); padding: 10px; border: 1px solid #111; border-radius: 6px; background: #fff; box-shadow: 0 12px 28px rgba(15, 23, 42, .18); font-size: 13px; }
+.map-popup h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.25; }
+.map-popup p { margin: 4px 0; color: #555; }
+.map-popup a { display: inline-flex; margin-top: 6px; color: #111; font-weight: 800; }
+.map-legend { display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 9px 10px; border-top: 1px solid #d8dde4; background: #fff; font-size: 12px; color: #555; }
+.map-legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.map-swatch { width: 10px; height: 10px; border-radius: 50%; background: var(--legend-color); }
+@media (max-width: 760px) {
+  .wrap { margin: 0; padding: 22px 14px 40px; }
+  .map-head { display: block; }
+  .map-head .basis { margin-top: 4px; text-align: left; }
+  .map-toolbar { align-items: flex-start; }
+  .map-status { font-size: 12px; }
+  .map-canvas { height: 72vh; min-height: 390px; }
+  .map-label { max-width: 108px; font-size: 11px; }
+  .map-legend { max-height: 96px; overflow: auto; }
+}
+</style>
+</head><body>
+<div class="wrap">
+<h1>합성목재 조달청 17년 시장조사 — 38개사 카드 목록</h1>
+<p class="sub">2009~2026 (2026-07-07 기준) &middot; 납품요구 실거래 기준 &middot; 매출 큰 순 정렬 (헤더 클릭 정렬)</p>
+<div class="index-top">
+  <div class="index-period"><span class="period-label">조회 기간</span><select class="period-sel" aria-label="기간 선택" onchange="if(this.value)location.href=this.value"><option value="index.html" selected>전체 (17년)</option><option value="index-5y.html">최근 5년</option><option value="index-1y.html">2026년</option></select></div>
+  <a href="channel-structure.html">거래 구조 분석 보기</a>
+</div>
+<p class="basis">성장/진입 기준은 ShoppingMallPrdctInfoService 납품요구 실거래 행입니다. 카탈로그 등록일(rgstDt)이나 법인 설립일은 사용하지 않습니다.</p>
+
+<section class="supplier-map-section" aria-label="업체 본사 지도">
+  <div class="map-head">
+    <h2>업체 본사 지도</h2>
+    <p class="basis">VWorld 공식 배경지도 기준 · 같은 시도는 같은 색</p>
+  </div>
+  <div class="map-shell">
+    <div class="map-toolbar">
+      <div class="map-buttons">
+        <button type="button" class="map-control" data-map-zoom-in title="확대" aria-label="확대">+</button>
+        <button type="button" class="map-control" data-map-zoom-out title="축소" aria-label="축소">-</button>
+      </div>
+      <div id="supplier-map-status" class="map-status" role="status">지도 초기화 중</div>
+    </div>
+    <div id="supplier-map" class="map-canvas" aria-label="대한민국 업체 위치 지도">
+      <div class="map-tiles" data-map-tiles></div>
+      <div class="map-markers" data-map-markers></div>
+      <div class="map-popup" data-map-popup hidden></div>
+    </div>
+    <div id="supplier-map-legend" class="map-legend" aria-label="시도 색상 범례"></div>
+  </div>
+  <script type="application/json" id="supplier-map-data">[{"rank": 1, "id": "wa03395b90", "name": "주식회사 아키페이스", "shortName": "아키페이스", "sido": "경기도", "color": "#087f5b", "addresses": ["경기도 김포시 대곶면 율생리", "경기도 김포시 대곶면 대명항로205번길"], "primaryAddress": "경기도 김포시 대곶면 율생리", "detailHref": "card-wa03395b90.html", "amountLabel": "₩627.4억", "shareLabel": "8.11%"}, {"rank": 2, "id": "w5b5cb4b35", "name": "주식회사 본우드", "shortName": "본우드", "sido": "서울특별시", "color": "#475569", "addresses": ["서울특별시 강서구 방화동", "경기도 화성시 서봉로"], "primaryAddress": "서울특별시 강서구 방화동", "detailHref": "card-w5b5cb4b35.html", "amountLabel": "₩488.1억", "shareLabel": "6.31%"}, {"rank": 3, "id": "w4638e4c24", "name": "(주)더우드", "shortName": "더우드", "sido": "경기도", "color": "#087f5b", "addresses": ["경기도 용인시 기흥구 보정동", "경기도 여주군 북내면 외재로 167-46"], "primaryAddress": "경기도 용인시 기흥구 보정동", "detailHref": "card-w4638e4c24.html", "amountLabel": "₩471.2억", "shareLabel": "6.09%"}, {"rank": 4, "id": "w71a9b978c", "name": "경동산업주식회사", "shortName": "경동산업", "sido": "경기도", "color": "#087f5b", "addresses": ["경기도 화성시 요당길"], "primaryAddress": "경기도 화성시 요당길", "detailHref": "card-w71a9b978c.html", "amountLabel": "₩359.8억", "shareLabel": "4.65%"}, {"rank": 5, "id": "w4dc850523", "name": "(주)테크유니온", "shortName": "테크유니온", "sido": "부산광역시", "color": "#b42318", "addresses": ["부산 부산진구 전포동 한신O/T 701호", "부산광역시 사상구 대동로 303,  부산디지털밸리 709호"], "primaryAddress": "부산 부산진구 전포동 한신O/T 701호", "detailHref": "card-w4dc850523.html", "amountLabel": "₩351.0억", "shareLabel": "4.54%"}, {"rank": 6, "id": "w20a1edc5e", "name": "(주)그린우드", "shortName": "그린우드", "sido": "전북특별자치도", "color": "#9d174d", "addresses": ["전라북도 순창군 풍산면 우곡리", "전북특별자치도 김제시 서흥공단1길"], "primaryAddress": "전라북도 순창군 풍산면 우곡리", "detailHref": "card-w20a1edc5e.html", "amountLabel": "₩321.6억", "shareLabel": "4.16%"}, {"rank": 7, "id": "w6d91126c8", "name": "벽진산업 주식회사", "shortName": "벽진산업", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 함안군 칠북면 가연리", "경상남도 함안군 칠북면 가연1길 39"], "primaryAddress": "경상남도 함안군 칠북면 가연리", "detailHref": "card-w6d91126c8.html", "amountLabel": "₩315.3억", "shareLabel": "4.08%"}, {"rank": 8, "id": "w7e5df60e7", "name": "주식회사웹스", "shortName": "웹스", "sido": "부산광역시", "color": "#b42318", "addresses": ["부산광역시 부산진구 가야동", "충청북도 청주시 상당구 가덕면 행정노동길"], "primaryAddress": "부산광역시 부산진구 가야동", "detailHref": "card-w7e5df60e7.html", "amountLabel": "₩278.7억", "shareLabel": "3.6%"}, {"rank": 9, "id": "wb6d61eb2c", "name": "주식회사 삼진우드", "shortName": "삼진우드", "sido": "전라남도", "color": "#2f6f3e", "addresses": ["전라남도 무안군 청계면 청계공단길"], "primaryAddress": "전라남도 무안군 청계면 청계공단길", "detailHref": "card-wb6d61eb2c.html", "amountLabel": "₩153.4억", "shareLabel": "1.98%"}, {"rank": 10, "id": "w26d3eeee7", "name": "주식회사 임성", "shortName": "임성", "sido": "울산광역시", "color": "#0b7285", "addresses": ["울산광역시 중구 성안동", "경상북도 경주시 외동읍 문구로 69"], "primaryAddress": "울산광역시 중구 성안동", "detailHref": "card-w26d3eeee7.html", "amountLabel": "₩143.7억", "shareLabel": "1.86%"}, {"rank": 11, "id": "wabd3ebfb8", "name": "대성우드주식회사", "shortName": "대성우드", "sido": "경상북도", "color": "#6b4ea0", "addresses": ["경상북도 성주군 선남면 신부리", "경상북도 성주군 선남면 신부길"], "primaryAddress": "경상북도 성주군 선남면 신부리", "detailHref": "card-wabd3ebfb8.html", "amountLabel": "₩87.6억", "shareLabel": "1.13%"}, {"rank": 12, "id": "wb2a8b0c6e", "name": "유풍산업", "shortName": "유풍산업", "sido": "경상북도", "color": "#6b4ea0", "addresses": ["경상북도 문경시 산양면 진정리", "경상북도 문경시 산양면 산양공단1길 19-13"], "primaryAddress": "경상북도 문경시 산양면 진정리", "detailHref": "card-wb2a8b0c6e.html", "amountLabel": "₩83.2억", "shareLabel": "1.08%"}, {"rank": 13, "id": "wfb9207153", "name": "주식회사 한국폴리우드", "shortName": "한국폴리우드", "sido": "전북특별자치도", "color": "#9d174d", "addresses": ["전라북도 부안군 행안면 옥여길", "전북특별자치도 부안군 행안면 옥여길"], "primaryAddress": "전라북도 부안군 행안면 옥여길", "detailHref": "card-wfb9207153.html", "amountLabel": "₩78.1억", "shareLabel": "1.01%"}, {"rank": 14, "id": "w5b2ee73ce", "name": "주식회사 우든테크", "shortName": "우든테크", "sido": "충청남도", "color": "#1864ab", "addresses": ["충청남도 천안시 동남구 성심원길"], "primaryAddress": "충청남도 천안시 동남구 성심원길", "detailHref": "card-w5b2ee73ce.html", "amountLabel": "₩76.2억", "shareLabel": "0.99%"}, {"rank": 15, "id": "w632bb97e1", "name": "동양기업주식회사", "shortName": "동양기업", "sido": "충청북도", "color": "#a16207", "addresses": ["충청북도 보은군 장안면 구인리", "충청북도 보은군 장안면 매화구인로 332-18"], "primaryAddress": "충청북도 보은군 장안면 구인리", "detailHref": "card-w632bb97e1.html", "amountLabel": "₩75.3억", "shareLabel": "0.97%"}, {"rank": 16, "id": "w49ecad64d", "name": "주식회사 에스지텍", "shortName": "에스지텍", "sido": "경기도", "color": "#087f5b", "addresses": ["경기도 안성시 서운면 송죽길"], "primaryAddress": "경기도 안성시 서운면 송죽길", "detailHref": "card-w49ecad64d.html", "amountLabel": "₩75.1억", "shareLabel": "0.97%"}, {"rank": 17, "id": "w2a6e3b78f", "name": "주식회사 우드원", "shortName": "우드원", "sido": "강원특별자치도", "color": "#174f9a", "addresses": ["강원도 춘천시 소양로1가", "강원특별자치도 춘천시 퇴계공단1길"], "primaryAddress": "강원도 춘천시 소양로1가", "detailHref": "card-w2a6e3b78f.html", "amountLabel": "₩71.9억", "shareLabel": "0.93%"}, {"rank": 18, "id": "wc09427076", "name": "주식회사 한라지엔씨", "shortName": "한라지엔씨", "sido": "제주특별자치도", "color": "#5f3dc4", "addresses": ["제주특별자치도 제주시 애월읍 평화로"], "primaryAddress": "제주특별자치도 제주시 애월읍 평화로", "detailHref": "card-wc09427076.html", "amountLabel": "₩68.1억", "shareLabel": "0.88%"}, {"rank": 19, "id": "w012330d14", "name": "세종데크", "shortName": "세종데크", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 사천시 곤양면 맥사리", "경상남도 사천시 곤양면 곤북로 94"], "primaryAddress": "경상남도 사천시 곤양면 맥사리", "detailHref": "card-w012330d14.html", "amountLabel": "₩48.1억", "shareLabel": "0.62%"}, {"rank": 20, "id": "w6b4d8960c", "name": "주식회사 우드맥스", "shortName": "우드맥스", "sido": "전라남도", "color": "#2f6f3e", "addresses": ["전라남도 보성군 조성면 조성로"], "primaryAddress": "전라남도 보성군 조성면 조성로", "detailHref": "card-w6b4d8960c.html", "amountLabel": "₩47.8억", "shareLabel": "0.62%"}, {"rank": 21, "id": "w71337fdb3", "name": "주식회사 그린산업개발", "shortName": "그린산업개발", "sido": "전라남도", "color": "#2f6f3e", "addresses": ["전라남도 구례군 구례읍 신월리", "전라남도 장흥군 장평면 농공단지길"], "primaryAddress": "전라남도 구례군 구례읍 신월리", "detailHref": "card-w71337fdb3.html", "amountLabel": "₩46.8억", "shareLabel": "0.6%"}, {"rank": 22, "id": "wfc3f59898", "name": "천일합성목재 주식회사", "shortName": "천일합성목재", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 창원시 마산합포구 삼진의거대로"], "primaryAddress": "경상남도 창원시 마산합포구 삼진의거대로", "detailHref": "card-wfc3f59898.html", "amountLabel": "₩44.6억", "shareLabel": "0.58%"}, {"rank": 23, "id": "w11eaa1675", "name": "우리우드", "shortName": "우리우드", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 양산시 용주로"], "primaryAddress": "경상남도 양산시 용주로", "detailHref": "card-w11eaa1675.html", "amountLabel": "₩44.5억", "shareLabel": "0.58%"}, {"rank": 24, "id": "w3a8cd1e96", "name": "주식회사 아미인텍", "shortName": "아미인텍", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 창원시 용호동", "경상남도 진주시 사봉면 사군로"], "primaryAddress": "경상남도 창원시 용호동", "detailHref": "card-w3a8cd1e96.html", "amountLabel": "₩42.5억", "shareLabel": "0.55%"}, {"rank": 25, "id": "w07e0eedef", "name": "주식회사 지케이우드", "shortName": "지케이우드", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 사천시 사남면 유천길"], "primaryAddress": "경상남도 사천시 사남면 유천길", "detailHref": "card-w07e0eedef.html", "amountLabel": "₩39.0억", "shareLabel": "0.5%"}, {"rank": 26, "id": "w7a79f0f22", "name": "주식회사 동하", "shortName": "동하", "sido": "경기도", "color": "#087f5b", "addresses": ["경기도 포천시 가산면 방산길", "경기도 포천시 영중면 양문공단로3길"], "primaryAddress": "경기도 포천시 가산면 방산길", "detailHref": "card-w7a79f0f22.html", "amountLabel": "₩36.7억", "shareLabel": "0.47%"}, {"rank": 27, "id": "wfe76ce055", "name": "주식회사 스틸엔우드", "shortName": "스틸엔우드", "sido": "경기도", "color": "#087f5b", "addresses": ["경기도 부천시오정구 여월동", "충청북도 음성군 삼성면 대덕로"], "primaryAddress": "경기도 부천시오정구 여월동", "detailHref": "card-wfe76ce055.html", "amountLabel": "₩25.6억", "shareLabel": "0.33%"}, {"rank": 28, "id": "we133e4fbc", "name": "주식회사 유에스씨", "shortName": "유에스씨", "sido": "인천광역시", "color": "#7c3aed", "addresses": ["인천광역시 서구 드림로", "인천광역시 서구 한서로"], "primaryAddress": "인천광역시 서구 드림로", "detailHref": "card-we133e4fbc.html", "amountLabel": "₩22.2억", "shareLabel": "0.29%"}, {"rank": 29, "id": "w07656877f", "name": "(주)셈텍", "shortName": "셈텍", "sido": "강원특별자치도", "color": "#174f9a", "addresses": ["강원도 원주시 태장공단길", "충청북도 청주시 청원구 북이면 석성한천길"], "primaryAddress": "강원도 원주시 태장공단길", "detailHref": "card-w07656877f.html", "amountLabel": "₩17.4억", "shareLabel": "0.23%"}, {"rank": 30, "id": "wf6c05e87a", "name": "(주)에코로", "shortName": "에코로", "sido": "인천광역시", "color": "#7c3aed", "addresses": ["인천광역시 서구 봉수대로", "경기도 화성시 송산면 송산로152번길"], "primaryAddress": "인천광역시 서구 봉수대로", "detailHref": "card-wf6c05e87a.html", "amountLabel": "₩15.6억", "shareLabel": "0.2%"}, {"rank": 31, "id": "wf2822138e", "name": "피엠씨글로벌 주식회사", "shortName": "피엠씨글로벌", "sido": "경상북도", "color": "#6b4ea0", "addresses": ["경상북도 칠곡군 약목면 관호2길", "경상북도 칠곡군 약목면 복성20길"], "primaryAddress": "경상북도 칠곡군 약목면 관호2길", "detailHref": "card-wf2822138e.html", "amountLabel": "₩9.0억", "shareLabel": "0.12%"}, {"rank": 32, "id": "w3264e7887", "name": "주식회사 만평산업", "shortName": "만평산업", "sido": "경상북도", "color": "#6b4ea0", "addresses": ["경상북도 경주시 천북면 천북로"], "primaryAddress": "경상북도 경주시 천북면 천북로", "detailHref": "card-w3264e7887.html", "amountLabel": "₩7.9억", "shareLabel": "0.1%"}, {"rank": 33, "id": "w206e79589", "name": "(주)동명테크", "shortName": "동명테크", "sido": "대구광역시", "color": "#0f766e", "addresses": ["대구광역시 달성군 구지면 고봉리", "대구광역시 달성군 구지면 국가산단동로42길"], "primaryAddress": "대구광역시 달성군 구지면 고봉리", "detailHref": "card-w206e79589.html", "amountLabel": "₩6.8억", "shareLabel": "0.09%"}, {"rank": 34, "id": "w0f0573716", "name": "에스지텍 강원", "shortName": "에스지텍 강원", "sido": "강원특별자치도", "color": "#174f9a", "addresses": ["강원도 고성군 죽왕면 향목서길", "강원특별자치도 고성군 죽왕면 향목서길"], "primaryAddress": "강원도 고성군 죽왕면 향목서길", "detailHref": "card-w0f0573716.html", "amountLabel": "₩3.6억", "shareLabel": "0.05%"}, {"rank": 35, "id": "w9a1044fbd", "name": "금강우드(합자)", "shortName": "금강우드(합자)", "sido": "강원특별자치도", "color": "#174f9a", "addresses": ["강원도 평창군 평창읍 농공단지길", "강원특별자치도 평창군 평창읍 농공단지길"], "primaryAddress": "강원도 평창군 평창읍 농공단지길", "detailHref": "card-w9a1044fbd.html", "amountLabel": "₩1.9억", "shareLabel": "0.02%"}, {"rank": 36, "id": "w089255459", "name": "주식회사 케이알", "shortName": "케이알", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 창원시 대원동", "경상남도 함안군 가야읍 광정로"], "primaryAddress": "경상남도 창원시 대원동", "detailHref": "card-w089255459.html", "amountLabel": "₩1.7억", "shareLabel": "0.02%"}, {"rank": 37, "id": "w256f37e00", "name": "주식회사 한서하이테크", "shortName": "한서하이테크", "sido": "경상남도", "color": "#8a5a00", "addresses": ["경상남도 김해시 흥동로171번길", "경상남도 김해시 장유로149번길"], "primaryAddress": "경상남도 김해시 흥동로171번길", "detailHref": "card-w256f37e00.html", "amountLabel": "₩1.3억", "shareLabel": "0.02%"}, {"rank": 38, "id": "w08c9bac8e", "name": "(주)태전", "shortName": "태전", "sido": "충청북도", "color": "#a16207", "addresses": ["충청북도 청원군 가덕면 내암리", "충청북도 청주시 상당구 낭성면 단재로"], "primaryAddress": "충청북도 청원군 가덕면 내암리", "detailHref": "card-w08c9bac8e.html", "amountLabel": "₩1,274만", "shareLabel": "0.0%"}]</script>
+  <script>
+(() => {
+  const root = document.getElementById('supplier-map');
+  const dataEl = document.getElementById('supplier-map-data');
+  if (!root || !dataEl) return;
+
+  const tileLayer = root.querySelector('[data-map-tiles]');
+  const markerLayer = root.querySelector('[data-map-markers]');
+  const popup = root.querySelector('[data-map-popup]');
+  const statusEl = document.getElementById('supplier-map-status');
+  const legendEl = document.getElementById('supplier-map-legend');
+  const suppliers = JSON.parse(dataEl.textContent);
+  const TILE = 256;
+  const state = {
+    center: { lon: 127.7, lat: 36.35 },
+    zoom: 7,
+    minZoom: 6,
+    maxZoom: 16,
+    coords: new Map(),
+    selected: null,
+    dragging: false,
+    dragStart: null,
+    centerStart: null,
+    tileErrorShown: false,
+  };
+
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const tileCount = zoom => 2 ** zoom;
+
+  function project(lon, lat, zoom) {
+    const sinLat = Math.sin(clamp(lat, -85.05112878, 85.05112878) * Math.PI / 180);
+    const n = tileCount(zoom) * TILE;
+    return {
+      x: ((lon + 180) / 360) * n,
+      y: (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * n,
+    };
+  }
+
+  function unproject(x, y, zoom) {
+    const n = tileCount(zoom) * TILE;
+    const lon = x / n * 360 - 180;
+    const lat = Math.atan(Math.sinh(Math.PI * (1 - 2 * y / n))) * 180 / Math.PI;
+    return { lon, lat };
+  }
+
+  function mapSize() {
+    return { width: root.clientWidth || 1, height: root.clientHeight || 1 };
+  }
+
+  function origin() {
+    const size = mapSize();
+    const centerPx = project(state.center.lon, state.center.lat, state.zoom);
+    return { x: centerPx.x - size.width / 2, y: centerPx.y - size.height / 2 };
+  }
+
+  function setStatus(text, isError = false) {
+    statusEl.textContent = text;
+    statusEl.classList.toggle('is-error', isError);
+  }
+
+  function renderLegend() {
+    const seen = new Map();
+    for (const supplier of suppliers) {
+      if (!seen.has(supplier.sido)) seen.set(supplier.sido, supplier.color);
+    }
+    legendEl.textContent = '';
+    for (const [sido, color] of seen) {
+      const item = document.createElement('span');
+      item.className = 'map-legend-item';
+      const swatch = document.createElement('span');
+      swatch.className = 'map-swatch';
+      swatch.style.setProperty('--legend-color', color);
+      const label = document.createElement('span');
+      label.textContent = sido;
+      item.append(swatch, label);
+      legendEl.append(item);
+    }
+  }
+
+  function renderTiles() {
+    const size = mapSize();
+    const topLeft = origin();
+    const n = tileCount(state.zoom);
+    const minX = Math.floor(topLeft.x / TILE);
+    const minY = Math.floor(topLeft.y / TILE);
+    const maxX = Math.floor((topLeft.x + size.width) / TILE);
+    const maxY = Math.floor((topLeft.y + size.height) / TILE);
+    const needed = new Set();
+
+    for (let tx = minX; tx <= maxX; tx += 1) {
+      if (tx < 0 || tx >= n) continue;
+      for (let ty = minY; ty <= maxY; ty += 1) {
+        if (ty < 0 || ty >= n) continue;
+        const key = `${state.zoom}/${tx}/${ty}`;
+        needed.add(key);
+        let img = tileLayer.querySelector(`[data-tile-key="${key}"]`);
+        if (!img) {
+          img = document.createElement('img');
+          img.className = 'map-tile';
+          img.dataset.tileKey = key;
+          img.alt = '';
+          img.decoding = 'async';
+          img.loading = 'eager';
+          img.src = `/api/map-tile?z=${state.zoom}&x=${tx}&y=${ty}`;
+          img.addEventListener('error', () => {
+            img.classList.add('is-error');
+            if (!state.tileErrorShown) {
+              state.tileErrorShown = true;
+              setStatus('VWorld 지도 타일을 불러오지 못했습니다. VWORLD_API_KEY와 로컬 서버를 확인하세요.', true);
+            }
+          });
+          tileLayer.append(img);
+        }
+        img.style.left = `${tx * TILE - topLeft.x}px`;
+        img.style.top = `${ty * TILE - topLeft.y}px`;
+      }
+    }
+
+    for (const img of Array.from(tileLayer.children)) {
+      if (!needed.has(img.dataset.tileKey)) img.remove();
+    }
+  }
+
+  function supplierScreenPoint(supplier) {
+    const coord = state.coords.get(supplier.id);
+    if (!coord) return null;
+    const topLeft = origin();
+    const px = project(coord.lon, coord.lat, state.zoom);
+    return { x: px.x - topLeft.x, y: px.y - topLeft.y };
+  }
+
+  function renderMarkers() {
+    markerLayer.textContent = '';
+    const size = mapSize();
+    for (const supplier of suppliers) {
+      const point = supplierScreenPoint(supplier);
+      if (!point) continue;
+      if (point.x < -80 || point.y < -60 || point.x > size.width + 160 || point.y > size.height + 60) continue;
+
+      const marker = document.createElement('div');
+      marker.className = 'map-marker';
+      marker.style.left = `${point.x}px`;
+      marker.style.top = `${point.y}px`;
+      marker.style.setProperty('--marker-color', supplier.color);
+      marker.style.zIndex = String(Math.max(1, 1000 - supplier.rank));
+
+      const pin = document.createElement('button');
+      pin.type = 'button';
+      pin.className = 'map-pin';
+      pin.title = supplier.name;
+      pin.setAttribute('aria-label', `${supplier.name} 위치`);
+      pin.addEventListener('click', event => {
+        event.stopPropagation();
+        showPopup(supplier, point);
+      });
+
+      const label = document.createElement('a');
+      label.className = 'map-label';
+      label.href = supplier.detailHref;
+      label.title = supplier.name;
+      label.dataset.priority = String(supplier.rank);
+      label.textContent = supplier.shortName;
+
+      marker.append(pin, label);
+      markerLayer.append(marker);
+    }
+    requestAnimationFrame(resolveLabelCollisions);
+    if (state.selected) {
+      const selected = suppliers.find(item => item.id === state.selected);
+      const point = selected ? supplierScreenPoint(selected) : null;
+      if (selected && point) showPopup(selected, point);
+    }
+  }
+
+  function resolveLabelCollisions() {
+    const rootRect = root.getBoundingClientRect();
+    const accepted = [];
+    const labels = Array.from(markerLayer.querySelectorAll('.map-label'))
+      .sort((a, b) => Number(a.dataset.priority) - Number(b.dataset.priority));
+    for (const label of labels) {
+      label.classList.remove('map-label--hidden');
+      const rect = label.getBoundingClientRect();
+      const outside = rect.right < rootRect.left || rect.left > rootRect.right || rect.bottom < rootRect.top || rect.top > rootRect.bottom;
+      const overlaps = accepted.some(other => !(rect.right + 4 < other.left || rect.left - 4 > other.right || rect.bottom + 4 < other.top || rect.top - 4 > other.bottom));
+      if (outside || overlaps) {
+        label.classList.add('map-label--hidden');
+      } else {
+        accepted.push(rect);
+      }
+    }
+  }
+
+  function showPopup(supplier, point) {
+    state.selected = supplier.id;
+    popup.textContent = '';
+    const title = document.createElement('h3');
+    title.textContent = supplier.name;
+    const meta = document.createElement('p');
+    meta.textContent = `${supplier.sido} · ${supplier.amountLabel} · 점유 ${supplier.shareLabel}`;
+    const address = document.createElement('p');
+    address.textContent = supplier.primaryAddress || '주소 없음';
+    const link = document.createElement('a');
+    link.href = supplier.detailHref;
+    link.textContent = '상세 보기';
+    popup.append(title, meta, address, link);
+    popup.hidden = false;
+    const size = mapSize();
+    popup.style.left = `${clamp(point.x + 14, 8, Math.max(8, size.width - 270))}px`;
+    popup.style.top = `${clamp(point.y - 18, 8, Math.max(8, size.height - 142))}px`;
+  }
+
+  function render() {
+    renderTiles();
+    renderMarkers();
+  }
+
+  function setCenterFromWorld(worldPx, zoom) {
+    state.center = unproject(worldPx.x, worldPx.y, zoom);
+  }
+
+  function zoomBy(delta, anchorX = root.clientWidth / 2, anchorY = root.clientHeight / 2) {
+    const nextZoom = clamp(state.zoom + delta, state.minZoom, state.maxZoom);
+    if (nextZoom === state.zoom) return;
+    const beforeOrigin = origin();
+    const anchorLonLat = unproject(beforeOrigin.x + anchorX, beforeOrigin.y + anchorY, state.zoom);
+    state.zoom = nextZoom;
+    const anchorWorld = project(anchorLonLat.lon, anchorLonLat.lat, state.zoom);
+    const size = mapSize();
+    setCenterFromWorld({
+      x: anchorWorld.x - anchorX + size.width / 2,
+      y: anchorWorld.y - anchorY + size.height / 2,
+    }, state.zoom);
+    render();
+  }
+
+  function fitToMarkers() {
+    const coords = Array.from(state.coords.values());
+    if (!coords.length) return;
+    const size = mapSize();
+    const lons = coords.map(c => c.lon);
+    const lats = coords.map(c => c.lat);
+    state.center = {
+      lon: (Math.min(...lons) + Math.max(...lons)) / 2,
+      lat: (Math.min(...lats) + Math.max(...lats)) / 2,
+    };
+    for (let zoom = state.maxZoom; zoom >= state.minZoom; zoom -= 1) {
+      const points = coords.map(c => project(c.lon, c.lat, zoom));
+      const xs = points.map(p => p.x);
+      const ys = points.map(p => p.y);
+      if (Math.max(...xs) - Math.min(...xs) <= size.width * 0.72 && Math.max(...ys) - Math.min(...ys) <= size.height * 0.7) {
+        state.zoom = zoom;
+        return;
+      }
+    }
+    state.zoom = state.minZoom;
+  }
+
+  async function geocodeAddress(address) {
+    const cacheKey = `vworld-geocode:${address}`;
+    try {
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) return JSON.parse(cached);
+    } catch (_) {}
+    const response = await fetch(`/api/geocode?address=${encodeURIComponent(address)}`);
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || data.status !== 'ok' || !data.result) {
+      throw new Error(data.message || 'geocode failed');
+    }
+    try {
+      localStorage.setItem(cacheKey, JSON.stringify(data.result));
+    } catch (_) {}
+    return data.result;
+  }
+
+  async function geocodeSupplier(supplier) {
+    for (const address of supplier.addresses || []) {
+      try {
+        const result = await geocodeAddress(address);
+        return { lon: Number(result.lon), lat: Number(result.lat) };
+      } catch (_) {}
+    }
+    return null;
+  }
+
+  async function loadCoordinates() {
+    let cursor = 0;
+    let done = 0;
+    let failed = 0;
+    const total = suppliers.length;
+    setStatus(`좌표 조회 중 0/${total}`);
+    const worker = async () => {
+      while (cursor < suppliers.length) {
+        const supplier = suppliers[cursor++];
+        const coord = await geocodeSupplier(supplier);
+        if (coord && Number.isFinite(coord.lon) && Number.isFinite(coord.lat)) {
+          state.coords.set(supplier.id, coord);
+        } else {
+          failed += 1;
+        }
+        done += 1;
+        setStatus(`좌표 조회 중 ${done}/${total}`);
+        renderMarkers();
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(4, suppliers.length) }, worker));
+    fitToMarkers();
+    render();
+    if (state.coords.size) {
+      const failText = failed ? ` · ${failed}개 주소 미확인` : '';
+      setStatus(`VWorld 지도 · 업체 ${state.coords.size}/${total}개 표시${failText}`, Boolean(failed));
+    } else {
+      setStatus('업체 좌표를 불러오지 못했습니다. 로컬 서버와 VWORLD_API_KEY를 확인하세요.', true);
+    }
+  }
+
+  root.addEventListener('pointerdown', event => {
+    if (event.target.closest('a, button')) return;
+    root.setPointerCapture(event.pointerId);
+    root.classList.add('is-dragging');
+    state.dragging = true;
+    state.dragStart = { x: event.clientX, y: event.clientY };
+    state.centerStart = project(state.center.lon, state.center.lat, state.zoom);
+    popup.hidden = true;
+  });
+
+  root.addEventListener('pointermove', event => {
+    if (!state.dragging) return;
+    const dx = event.clientX - state.dragStart.x;
+    const dy = event.clientY - state.dragStart.y;
+    setCenterFromWorld({ x: state.centerStart.x - dx, y: state.centerStart.y - dy }, state.zoom);
+    render();
+  });
+
+  const stopDrag = event => {
+    if (!state.dragging) return;
+    state.dragging = false;
+    root.classList.remove('is-dragging');
+    if (root.hasPointerCapture(event.pointerId)) root.releasePointerCapture(event.pointerId);
+  };
+  root.addEventListener('pointerup', stopDrag);
+  root.addEventListener('pointercancel', stopDrag);
+
+  root.addEventListener('wheel', event => {
+    event.preventDefault();
+    const rect = root.getBoundingClientRect();
+    zoomBy(event.deltaY < 0 ? 1 : -1, event.clientX - rect.left, event.clientY - rect.top);
+  }, { passive: false });
+
+  root.addEventListener('click', event => {
+    if (!event.target.closest('.map-pin, .map-popup')) popup.hidden = true;
+  });
+  document.querySelector('[data-map-zoom-in]').addEventListener('click', () => zoomBy(1));
+  document.querySelector('[data-map-zoom-out]').addEventListener('click', () => zoomBy(-1));
+  window.addEventListener('resize', () => { render(); });
+
+  renderLegend();
+  render();
+  loadCoordinates();
+})();
+</script>
+</section>
+
+<div class="market-summary">
+  <div class="ms-cell"><div class="ms-label">17년 시장 총액</div><div class="ms-value">₩7,735.2억</div></div>
+  <div class="ms-cell"><div class="ms-label">시장 회사 수</div><div class="ms-value">422</div></div>
+  <div class="ms-cell"><div class="ms-label">시장 평균 매출</div><div class="ms-value">₩18.3억</div></div>
+  <div class="ms-cell"><div class="ms-label">eligible 수요기관</div><div class="ms-value">681</div></div>
+  <div class="ms-cell"><div class="ms-label">38개사 합산 점유</div><div class="ms-value">59.3%</div></div>
+</div>
+
+<table id="ctable">
+  <thead><tr>
+    <th data-sort="num">#</th>
+    <th data-sort="str">회사명</th>
+    <th data-sort="str">부재 종류</th>
+    <th data-sort="amt">17년 매출</th>
+    <th data-sort="num">점유</th>
+    <th data-sort="rank">순위</th>
+    <th data-sort="num">배율</th>
+    <th data-sort="num">거래</th>
+    <th data-sort="num">기관</th>
+    <th data-sort="num">시도</th>
+    <th data-sort="str">첫거래</th>
+    <th data-sort="str">우수조달</th>
+  </tr></thead>
+  <tbody><tr>
+  <td class="col-rank">1</td>
+  <td class="col-name"><a href="card-wa03395b90.html">주식회사 아키페이스</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩627.4억</td>
+  <td class="col-pct">8.11%</td>
+  <td class="col-pct">#1</td>
+  <td class="col-pct">34.2배</td>
+  <td class="col-num">2,638</td>
+  <td class="col-num">602</td>
+  <td class="col-num">17</td>
+  <td class="col-date">2008-06-11</td>
+  <td class="col-date">2014</td>
+</tr>
+<tr>
+  <td class="col-rank">2</td>
+  <td class="col-name"><a href="card-w5b5cb4b35.html">주식회사 본우드</a></td>
+  <td class="col-type">바닥재</td>
+  <td class="col-amt">₩488.1억</td>
+  <td class="col-pct">6.31%</td>
+  <td class="col-pct">#2</td>
+  <td class="col-pct">26.6배</td>
+  <td class="col-num">2,066</td>
+  <td class="col-num">418</td>
+  <td class="col-num">17</td>
+  <td class="col-date">2009-01-02</td>
+  <td class="col-date">2016</td>
+</tr>
+<tr>
+  <td class="col-rank">3</td>
+  <td class="col-name"><a href="card-w4638e4c24.html">(주)더우드</a></td>
+  <td class="col-type">데크재, 중보행데크재</td>
+  <td class="col-amt">₩471.2억</td>
+  <td class="col-pct">6.09%</td>
+  <td class="col-pct">#3</td>
+  <td class="col-pct">25.7배</td>
+  <td class="col-num">2,568</td>
+  <td class="col-num">534</td>
+  <td class="col-num">17</td>
+  <td class="col-date">2009-08-12</td>
+  <td class="col-date">2015</td>
+</tr>
+<tr>
+  <td class="col-rank">4</td>
+  <td class="col-name"><a href="card-w71a9b978c.html">경동산업주식회사</a></td>
+  <td class="col-type">바닥재</td>
+  <td class="col-amt">₩359.8억</td>
+  <td class="col-pct">4.65%</td>
+  <td class="col-pct">#4</td>
+  <td class="col-pct">19.6배</td>
+  <td class="col-num">2,055</td>
+  <td class="col-num">519</td>
+  <td class="col-num">17</td>
+  <td class="col-date">2013-02-14</td>
+  <td class="col-date">2014</td>
+</tr>
+<tr>
+  <td class="col-rank">5</td>
+  <td class="col-name"><a href="card-w4dc850523.html">(주)테크유니온</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩351.0억</td>
+  <td class="col-pct">4.54%</td>
+  <td class="col-pct">#5</td>
+  <td class="col-pct">19.1배</td>
+  <td class="col-num">1,244</td>
+  <td class="col-num">223</td>
+  <td class="col-num">15</td>
+  <td class="col-date">2009-02-02</td>
+  <td class="col-date">2016</td>
+</tr>
+<tr>
+  <td class="col-rank">6</td>
+  <td class="col-name"><a href="card-w20a1edc5e.html">(주)그린우드</a></td>
+  <td class="col-type">데크재, 바닥재</td>
+  <td class="col-amt">₩321.6억</td>
+  <td class="col-pct">4.16%</td>
+  <td class="col-pct">#7</td>
+  <td class="col-pct">17.5배</td>
+  <td class="col-num">1,411</td>
+  <td class="col-num">266</td>
+  <td class="col-num">15</td>
+  <td class="col-date">2010-03-17</td>
+  <td class="col-date">2014</td>
+</tr>
+<tr>
+  <td class="col-rank">7</td>
+  <td class="col-name"><a href="card-w6d91126c8.html">벽진산업 주식회사</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩315.3억</td>
+  <td class="col-pct">4.08%</td>
+  <td class="col-pct">#8</td>
+  <td class="col-pct">17.2배</td>
+  <td class="col-num">1,352</td>
+  <td class="col-num">338</td>
+  <td class="col-num">17</td>
+  <td class="col-date">2012-02-07</td>
+  <td class="col-date">2015</td>
+</tr>
+<tr>
+  <td class="col-rank">8</td>
+  <td class="col-name"><a href="card-w7e5df60e7.html">주식회사웹스</a></td>
+  <td class="col-type">데크재, 바닥재</td>
+  <td class="col-amt">₩278.7억</td>
+  <td class="col-pct">3.6%</td>
+  <td class="col-pct">#10</td>
+  <td class="col-pct">15.2배</td>
+  <td class="col-num">1,345</td>
+  <td class="col-num">425</td>
+  <td class="col-num">17</td>
+  <td class="col-date">2012-04-30</td>
+  <td class="col-date">2015</td>
+</tr>
+<tr>
+  <td class="col-rank">9</td>
+  <td class="col-name"><a href="card-wb6d61eb2c.html">주식회사 삼진우드</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩153.4억</td>
+  <td class="col-pct">1.98%</td>
+  <td class="col-pct">#14</td>
+  <td class="col-pct">8.4배</td>
+  <td class="col-num">507</td>
+  <td class="col-num">159</td>
+  <td class="col-num">13</td>
+  <td class="col-date">2018-05-22</td>
+  <td class="col-date">2020</td>
+</tr>
+<tr>
+  <td class="col-rank">10</td>
+  <td class="col-name"><a href="card-w26d3eeee7.html">주식회사 임성</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩143.7억</td>
+  <td class="col-pct">1.86%</td>
+  <td class="col-pct">#16</td>
+  <td class="col-pct">7.8배</td>
+  <td class="col-num">542</td>
+  <td class="col-num">202</td>
+  <td class="col-num">15</td>
+  <td class="col-date">2011-08-01</td>
+  <td class="col-date">2016</td>
+</tr>
+<tr>
+  <td class="col-rank">11</td>
+  <td class="col-name"><a href="card-wabd3ebfb8.html">대성우드주식회사</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩87.6억</td>
+  <td class="col-pct">1.13%</td>
+  <td class="col-pct">#19</td>
+  <td class="col-pct">4.8배</td>
+  <td class="col-num">400</td>
+  <td class="col-num">150</td>
+  <td class="col-num">14</td>
+  <td class="col-date">2011-12-07</td>
+  <td class="col-date">2015</td>
+</tr>
+<tr>
+  <td class="col-rank">12</td>
+  <td class="col-name"><a href="card-wb2a8b0c6e.html">유풍산업</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩83.2억</td>
+  <td class="col-pct">1.08%</td>
+  <td class="col-pct">#22</td>
+  <td class="col-pct">4.5배</td>
+  <td class="col-num">418</td>
+  <td class="col-num">83</td>
+  <td class="col-num">12</td>
+  <td class="col-date">2016-08-03</td>
+  <td class="col-date">2019</td>
+</tr>
+<tr>
+  <td class="col-rank">13</td>
+  <td class="col-name"><a href="card-wfb9207153.html">주식회사 한국폴리우드</a></td>
+  <td class="col-type">데크재, 중보행데크재</td>
+  <td class="col-amt">₩78.1억</td>
+  <td class="col-pct">1.01%</td>
+  <td class="col-pct">#23</td>
+  <td class="col-pct">4.3배</td>
+  <td class="col-num">389</td>
+  <td class="col-num">86</td>
+  <td class="col-num">13</td>
+  <td class="col-date">2012-12-17</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">14</td>
+  <td class="col-name"><a href="card-w5b2ee73ce.html">주식회사 우든테크</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩76.2억</td>
+  <td class="col-pct">0.99%</td>
+  <td class="col-pct">#26</td>
+  <td class="col-pct">4.2배</td>
+  <td class="col-num">371</td>
+  <td class="col-num">142</td>
+  <td class="col-num">13</td>
+  <td class="col-date">2013-04-09</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">15</td>
+  <td class="col-name"><a href="card-w632bb97e1.html">동양기업주식회사</a></td>
+  <td class="col-type">데크재, 중보행데크재</td>
+  <td class="col-amt">₩75.3억</td>
+  <td class="col-pct">0.97%</td>
+  <td class="col-pct">#27</td>
+  <td class="col-pct">4.1배</td>
+  <td class="col-num">458</td>
+  <td class="col-num">125</td>
+  <td class="col-num">14</td>
+  <td class="col-date">2010-01-28</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">16</td>
+  <td class="col-name"><a href="card-w49ecad64d.html">주식회사 에스지텍</a></td>
+  <td class="col-type">데크재, 중보행데크재</td>
+  <td class="col-amt">₩75.1억</td>
+  <td class="col-pct">0.97%</td>
+  <td class="col-pct">#28</td>
+  <td class="col-pct">4.1배</td>
+  <td class="col-num">380</td>
+  <td class="col-num">190</td>
+  <td class="col-num">16</td>
+  <td class="col-date">2019-09-16</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">17</td>
+  <td class="col-name"><a href="card-w2a6e3b78f.html">주식회사 우드원</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩71.9억</td>
+  <td class="col-pct">0.93%</td>
+  <td class="col-pct">#30</td>
+  <td class="col-pct">3.9배</td>
+  <td class="col-num">342</td>
+  <td class="col-num">69</td>
+  <td class="col-num">7</td>
+  <td class="col-date">2012-05-30</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">18</td>
+  <td class="col-name"><a href="card-wc09427076.html">주식회사 한라지엔씨</a></td>
+  <td class="col-type">데크재, 중보행데크재</td>
+  <td class="col-amt">₩68.1억</td>
+  <td class="col-pct">0.88%</td>
+  <td class="col-pct">#32</td>
+  <td class="col-pct">3.7배</td>
+  <td class="col-num">496</td>
+  <td class="col-num">98</td>
+  <td class="col-num">3</td>
+  <td class="col-date">2015-10-20</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">19</td>
+  <td class="col-name"><a href="card-w012330d14.html">세종데크</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩48.1억</td>
+  <td class="col-pct">0.62%</td>
+  <td class="col-pct">#36</td>
+  <td class="col-pct">2.6배</td>
+  <td class="col-num">280</td>
+  <td class="col-num">66</td>
+  <td class="col-num">6</td>
+  <td class="col-date">2012-09-05</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">20</td>
+  <td class="col-name"><a href="card-w6b4d8960c.html">주식회사 우드맥스</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩47.8억</td>
+  <td class="col-pct">0.62%</td>
+  <td class="col-pct">#37</td>
+  <td class="col-pct">2.6배</td>
+  <td class="col-num">220</td>
+  <td class="col-num">119</td>
+  <td class="col-num">14</td>
+  <td class="col-date">2017-07-23</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">21</td>
+  <td class="col-name"><a href="card-w71337fdb3.html">주식회사 그린산업개발</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩46.8억</td>
+  <td class="col-pct">0.6%</td>
+  <td class="col-pct">#38</td>
+  <td class="col-pct">2.6배</td>
+  <td class="col-num">228</td>
+  <td class="col-num">108</td>
+  <td class="col-num">13</td>
+  <td class="col-date">2021-11-02</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">22</td>
+  <td class="col-name"><a href="card-wfc3f59898.html">천일합성목재 주식회사</a></td>
+  <td class="col-type">데크재, 바닥재</td>
+  <td class="col-amt">₩44.6억</td>
+  <td class="col-pct">0.58%</td>
+  <td class="col-pct">#39</td>
+  <td class="col-pct">2.4배</td>
+  <td class="col-num">229</td>
+  <td class="col-num">74</td>
+  <td class="col-num">8</td>
+  <td class="col-date">2013-05-09</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">23</td>
+  <td class="col-name"><a href="card-w11eaa1675.html">우리우드</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩44.5억</td>
+  <td class="col-pct">0.58%</td>
+  <td class="col-pct">#40</td>
+  <td class="col-pct">2.4배</td>
+  <td class="col-num">290</td>
+  <td class="col-num">95</td>
+  <td class="col-num">13</td>
+  <td class="col-date">2013-12-31</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">24</td>
+  <td class="col-name"><a href="card-w3a8cd1e96.html">주식회사 아미인텍</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩42.5억</td>
+  <td class="col-pct">0.55%</td>
+  <td class="col-pct">#41</td>
+  <td class="col-pct">2.3배</td>
+  <td class="col-num">246</td>
+  <td class="col-num">99</td>
+  <td class="col-num">11</td>
+  <td class="col-date">2017-11-01</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">25</td>
+  <td class="col-name"><a href="card-w07e0eedef.html">주식회사 지케이우드</a></td>
+  <td class="col-type">바닥재</td>
+  <td class="col-amt">₩39.0억</td>
+  <td class="col-pct">0.5%</td>
+  <td class="col-pct">#42</td>
+  <td class="col-pct">2.1배</td>
+  <td class="col-num">238</td>
+  <td class="col-num">75</td>
+  <td class="col-num">9</td>
+  <td class="col-date">2015-08-28</td>
+  <td class="col-date">2022</td>
+</tr>
+<tr>
+  <td class="col-rank">26</td>
+  <td class="col-name"><a href="card-w7a79f0f22.html">주식회사 동하</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩36.7억</td>
+  <td class="col-pct">0.47%</td>
+  <td class="col-pct">#45</td>
+  <td class="col-pct">2.0배</td>
+  <td class="col-num">115</td>
+  <td class="col-num">54</td>
+  <td class="col-num">14</td>
+  <td class="col-date">2023-06-07</td>
+  <td class="col-date">2023</td>
+</tr>
+<tr>
+  <td class="col-rank">27</td>
+  <td class="col-name"><a href="card-wfe76ce055.html">주식회사 스틸엔우드</a></td>
+  <td class="col-type">데크재, 마감재/외벽용</td>
+  <td class="col-amt">₩25.6억</td>
+  <td class="col-pct">0.33%</td>
+  <td class="col-pct">#54</td>
+  <td class="col-pct">1.4배</td>
+  <td class="col-num">135</td>
+  <td class="col-num">66</td>
+  <td class="col-num">12</td>
+  <td class="col-date">2011-03-08</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">28</td>
+  <td class="col-name"><a href="card-we133e4fbc.html">주식회사 유에스씨</a></td>
+  <td class="col-type">데크재, 중보행데크재</td>
+  <td class="col-amt">₩22.2억</td>
+  <td class="col-pct">0.29%</td>
+  <td class="col-pct">#58</td>
+  <td class="col-pct">1.2배</td>
+  <td class="col-num">102</td>
+  <td class="col-num">63</td>
+  <td class="col-num">12</td>
+  <td class="col-date">2021-12-27</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">29</td>
+  <td class="col-name"><a href="card-w07656877f.html">(주)셈텍</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩17.4억</td>
+  <td class="col-pct">0.23%</td>
+  <td class="col-pct">#62</td>
+  <td class="col-pct">1.0배</td>
+  <td class="col-num">68</td>
+  <td class="col-num">36</td>
+  <td class="col-num">6</td>
+  <td class="col-date">2021-04-12</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">30</td>
+  <td class="col-name"><a href="card-wf6c05e87a.html">(주)에코로</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩15.6억</td>
+  <td class="col-pct">0.2%</td>
+  <td class="col-pct">#65</td>
+  <td class="col-pct">0.8배</td>
+  <td class="col-num">91</td>
+  <td class="col-num">74</td>
+  <td class="col-num">14</td>
+  <td class="col-date">2020-05-12</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">31</td>
+  <td class="col-name"><a href="card-wf2822138e.html">피엠씨글로벌 주식회사</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩9.0억</td>
+  <td class="col-pct">0.12%</td>
+  <td class="col-pct">#81</td>
+  <td class="col-pct">0.5배</td>
+  <td class="col-num">54</td>
+  <td class="col-num">35</td>
+  <td class="col-num">5</td>
+  <td class="col-date">2016-06-16</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">32</td>
+  <td class="col-name"><a href="card-w3264e7887.html">주식회사 만평산업</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩7.9억</td>
+  <td class="col-pct">0.1%</td>
+  <td class="col-pct">#84</td>
+  <td class="col-pct">0.4배</td>
+  <td class="col-num">46</td>
+  <td class="col-num">30</td>
+  <td class="col-num">8</td>
+  <td class="col-date">2023-03-15</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">33</td>
+  <td class="col-name"><a href="card-w206e79589.html">(주)동명테크</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩6.8억</td>
+  <td class="col-pct">0.09%</td>
+  <td class="col-pct">#89</td>
+  <td class="col-pct">0.4배</td>
+  <td class="col-num">44</td>
+  <td class="col-num">22</td>
+  <td class="col-num">5</td>
+  <td class="col-date">2019-12-17</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">34</td>
+  <td class="col-name"><a href="card-w0f0573716.html">에스지텍 강원</a></td>
+  <td class="col-type">바닥재</td>
+  <td class="col-amt">₩3.6억</td>
+  <td class="col-pct">0.05%</td>
+  <td class="col-pct">#109</td>
+  <td class="col-pct">0.2배</td>
+  <td class="col-num">16</td>
+  <td class="col-num">5</td>
+  <td class="col-num">2</td>
+  <td class="col-date">2025-06-26</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">35</td>
+  <td class="col-name"><a href="card-w9a1044fbd.html">금강우드(합자)</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩1.9억</td>
+  <td class="col-pct">0.02%</td>
+  <td class="col-pct">#129</td>
+  <td class="col-pct">0.1배</td>
+  <td class="col-num">12</td>
+  <td class="col-num">10</td>
+  <td class="col-num">2</td>
+  <td class="col-date">2021-06-16</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">36</td>
+  <td class="col-name"><a href="card-w089255459.html">주식회사 케이알</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩1.7억</td>
+  <td class="col-pct">0.02%</td>
+  <td class="col-pct">#133</td>
+  <td class="col-pct">0.1배</td>
+  <td class="col-num">3</td>
+  <td class="col-num">3</td>
+  <td class="col-num">3</td>
+  <td class="col-date">2025-06-19</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">37</td>
+  <td class="col-name"><a href="card-w256f37e00.html">주식회사 한서하이테크</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩1.3억</td>
+  <td class="col-pct">0.02%</td>
+  <td class="col-pct">#137</td>
+  <td class="col-pct">0.1배</td>
+  <td class="col-num">9</td>
+  <td class="col-num">5</td>
+  <td class="col-num">3</td>
+  <td class="col-date">2026-01-15</td>
+  <td class="col-date">-</td>
+</tr>
+<tr>
+  <td class="col-rank">38</td>
+  <td class="col-name"><a href="card-w08c9bac8e.html">(주)태전</a></td>
+  <td class="col-type">데크재</td>
+  <td class="col-amt">₩1,274만</td>
+  <td class="col-pct">0.0%</td>
+  <td class="col-pct">#237</td>
+  <td class="col-pct">-</td>
+  <td class="col-num">2</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-date">2026-04-16</td>
+  <td class="col-date">-</td>
+</tr></tbody>
+</table>
+
+<div class="foot">합성목재 17년 시장 ₩7,735.2억 &middot; 시장 회사 422곳 &middot; 38개사가 시장의 59.3% 점유</div>
+</div>
+<script>
+// 간단한 column 정렬
+document.querySelectorAll('#ctable th').forEach((th, idx) => {
+  let asc = false;
+  th.addEventListener('click', () => {
+    const tbody = document.querySelector('#ctable tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const sortType = th.dataset.sort;
+    rows.sort((a, b) => {
+      let av = a.cells[idx].textContent.trim();
+      let bv = b.cells[idx].textContent.trim();
+      if (sortType === 'amt' || sortType === 'num') {
+        const parseV = v => {
+          v = v.replace(/[,₩#배%]/g, '').replace(/곳/g, '');
+          if (v.includes('억')) return parseFloat(v) * 1e8;
+          if (v.includes('만')) return parseFloat(v) * 1e4;
+          return parseFloat(v) || 0;
+        };
+        return (parseV(av) - parseV(bv)) * (asc ? 1 : -1);
+      } else if (sortType === 'rank') {
+        return (parseInt(av.replace('#', '')) - parseInt(bv.replace('#', ''))) * (asc ? 1 : -1);
+      }
+      return av.localeCompare(bv, 'ko') * (asc ? 1 : -1);
+    });
+    asc = !asc;
+    rows.forEach(r => tbody.appendChild(r));
+  });
+});
+</script>
+</body></html>

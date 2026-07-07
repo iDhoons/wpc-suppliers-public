@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주식회사 우든테크 — 합성목재 조달청 2026년 시장조사</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --paper: #fafaf6;
+    --fg: #0c0c09;
+    --fg-2: #2a2a26;
+    --muted: #6b6b66;
+    --border: #cfcfc8;
+    --border-soft: #e8e8e2;
+    --rule: #0c0c09;
+    --bar: #0c0c09;
+    --bar-soft: #d8d8d2;
+
+    --font-body: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "맑은 고딕", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, "Apple SD Gothic Neo", monospace;
+
+    --container-max: 1000px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  .container { max-width: var(--container-max); margin: 0 auto; padding: 0 32px; }
+
+  a { color: inherit; }
+
+  /* ========== HERO ========== */
+  .hero {
+    border-bottom: 2px solid var(--rule);
+    background: var(--bg);
+    padding: 56px 0 0;
+  }
+  .hero .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  .hero h1 {
+    margin: 0 0 10px;
+    font-size: clamp(34px, 5.2vw, 54px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+  .hero .subtitle {
+    margin: 0 0 36px;
+    font-size: clamp(17px, 1.8vw, 21px);
+    color: var(--fg-2);
+    line-height: 1.45;
+  }
+  .kv-grid {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+  .kv {
+    margin: 0;
+    padding: 20px 20px 18px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .kv dt {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .kv dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    line-height: 1.15;
+  }
+
+  /* ========== TOC ========== */
+  .toc {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    padding: 20px 0;
+  }
+  .toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    column-gap: 28px;
+    row-gap: 8px;
+  }
+  .toc a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--fg-2);
+    border-bottom: 1px solid transparent;
+    display: inline;
+  }
+  .toc a:hover { color: var(--fg); border-bottom-color: var(--fg); }
+  .toc .tnum {
+    font-family: var(--font-mono);
+    color: var(--muted);
+    margin-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ========== SECTIONS ========== */
+  main { padding: 0; }
+  .sec {
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0;
+  }
+  .sec:last-of-type { border-bottom: 2px solid var(--rule); }
+  .sec > .container > * + * { margin-top: 22px; }
+  .sec h2 {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .sec h2 .secnum {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    flex: 0 0 auto;
+  }
+  .sec h2 .copy-hint {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 120ms;
+  }
+  .sec h2:hover .copy-hint,
+  .sec h2:focus-visible .copy-hint { opacity: 1; }
+  .sec h2.copied .copy-hint { opacity: 1; color: var(--fg); }
+
+  .sec .hint {
+    font-size: 14.5px;
+    color: var(--muted);
+    margin-top: 4px;
+    max-width: 64ch;
+  }
+
+  /* ========== CHARTS ========== */
+  .chart-box {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 18px 18px 14px;
+  }
+  svg.chart { display: block; width: 100%; height: auto; }
+  .axis-x {
+    list-style: none;
+    margin: 10px 4px 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 11.5px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .axis-x.few { justify-content: space-around; }
+
+  /* ========== TABLES ========== */
+  .table-wrap { overflow-x: auto; }
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  table.data th, table.data td {
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: top;
+  }
+  table.data th {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+  }
+  table.data td.num,
+  table.data th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  table.data tr.me { background: var(--paper); }
+  table.data tr.me td { font-weight: 700; color: var(--fg); }
+  table.data tr.me td:first-child { border-left: 3px solid var(--fg); padding-left: 13px; }
+
+  /* ========== HBAR LIST ========== */
+  .hbar-list { margin: 0; padding: 0; list-style: none; }
+  .hbar {
+    display: grid;
+    grid-template-columns: minmax(140px, 220px) 1fr minmax(70px, 100px);
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 15px;
+  }
+  .hbar:last-child { border-bottom: none; }
+  .hbar .name { color: var(--fg); }
+  .hbar .track { height: 12px; background: var(--bar-soft); position: relative; }
+  .hbar .fill { height: 100%; background: var(--bar); }
+  .hbar .val {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  /* ========== COLS ========== */
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .col h3 {
+    margin: 0 0 12px;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .col h3 .count {
+    color: var(--fg);
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .col ul { margin: 0; padding: 0; list-style: none; font-size: 15px; }
+  .col li {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    line-height: 1.4;
+  }
+  .col li:last-child { border-bottom: none; }
+  .col li .v {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    flex: 0 0 auto;
+  }
+  .col li .nm { color: var(--fg); }
+
+  /* ========== TIMELINE ========== */
+  .timeline {
+    margin: 0;
+    padding: 4px 0 0 26px;
+    list-style: none;
+    border-left: 2px solid var(--fg);
+  }
+  .timeline li {
+    position: relative;
+    padding: 0 0 20px;
+  }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 7px;
+    width: 12px;
+    height: 12px;
+    background: var(--fg);
+    border-radius: 50%;
+  }
+  .timeline .yr {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .timeline .event {
+    font-size: 16px;
+    color: var(--fg);
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  /* ========== HERO NUMBER ========== */
+  .hero-num {
+    border: 1px solid var(--border);
+    padding: 28px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 32px;
+    align-items: center;
+  }
+  .hero-num .v {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .hero-num .meta { color: var(--fg-2); font-size: 15.5px; line-height: 1.55; }
+  .hero-num .meta b { color: var(--fg); font-weight: 700; }
+  .hero-num .meta .lbl {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-right: 6px;
+  }
+
+  /* ========== INLINE KV (excellence etc) ========== */
+  .inline-kv {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+  .inline-kv > div {
+    padding: 18px 20px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .inline-kv dt {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .inline-kv dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--fg);
+  }
+
+  /* ========== SKU LIST ========== */
+  .sku-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+  .sku-list li {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    align-items: baseline;
+    gap: 18px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .sku-list .rk { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+  .sku-list .nm { font-size: 17px; color: var(--fg); font-weight: 600; }
+  .sku-list .rev { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--fg); font-weight: 700; font-size: 17px; }
+
+  /* ========== SALES MODEL ========== */
+  .sm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+  .sm-grid > div {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 24px;
+  }
+  .sm-grid h3 {
+    margin: 0 0 14px;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .sm-pair { display: flex; gap: 28px; flex-wrap: wrap; }
+  .sm-pair > div { min-width: 90px; }
+  .sm-pair .lbl {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .sm-pair .n {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .sm-method-list { margin: 0; padding: 0; list-style: none; }
+  .sm-method-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 14.5px;
+  }
+  .sm-method-list li:last-child { border-bottom: none; }
+  .sm-method-list .v { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  .sm-big {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* ========== KEYWORDS ========== */
+  .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+  .tags li {
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    font-size: 14px;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.2;
+  }
+  .tags li.t1 { font-size: 22px; font-weight: 700; padding: 10px 16px; border-color: var(--fg); }
+  .tags li.t2 { font-size: 18px; font-weight: 600; padding: 8px 14px; }
+  .tags li.t3 { font-size: 16px; padding: 7px 13px; }
+
+  /* ========== CO-COMPETITORS ========== */
+  .co-list { margin: 0; padding: 0; list-style: none; }
+  .co-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-soft);
+    gap: 12px;
+  }
+  .co-list li:last-child { border-bottom: none; }
+  .co-list .nm { font-size: 15px; color: var(--fg); }
+  .co-list .v {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .co-list .v b { color: var(--fg); font-weight: 700; font-size: 16px; }
+
+  /* sub-header inside section */
+  .sub-h {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 26px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ========== FOOTER ========== */
+  .report-footer {
+    background: var(--paper);
+    padding: 40px 0 64px;
+  }
+  .footer-kv {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+  .footer-kv > div {
+    margin: 0;
+    padding: 20px 22px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .footer-kv dt {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 0 0 6px;
+  }
+  .footer-kv dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .report-meta {
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .nav-back { display: inline-block; margin: 24px 0 0; font-family: var(--font-mono); font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-back:hover { color: var(--fg); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 820px) {
+    .three-col { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .sm-grid { grid-template-columns: 1fr; }
+    .footer-kv { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .container { padding: 0 20px; }
+    .hero { padding: 36px 0 0; }
+    .kv-grid { grid-template-columns: 1fr 1fr; }
+    .footer-kv { grid-template-columns: 1fr; }
+    .hbar { grid-template-columns: 1fr; gap: 6px; }
+    .hbar .track { width: 100%; }
+    .hbar .val { text-align: left; }
+    .hero-num { grid-template-columns: 1fr; row-gap: 14px; padding: 22px 20px; }
+    .sec h2 .copy-hint { display: none; }
+    .sec { padding: 40px 0; }
+    .timeline { padding-left: 22px; }
+    .timeline li::before { left: -29px; }
+    .sku-list li { grid-template-columns: 26px 1fr; row-gap: 6px; }
+    .sku-list .rev { grid-column: 2; text-align: left; }
+  }
+
+  /* ========== PRINT ========== */
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    body { font-size: 11pt; background: #fff; color: #000; }
+    .toc, .nav-back { display: none; }
+    .hero { padding: 0 0 14pt; border-bottom: 2pt solid #000; page-break-after: avoid; }
+    .hero h1 { font-size: 28pt; }
+    .hero .subtitle { font-size: 13pt; margin-bottom: 18pt; }
+    .sec { padding: 14pt 0; border-bottom: 1pt solid #888; page-break-inside: avoid; }
+    .sec h2 { font-size: 16pt; cursor: default; }
+    .sec h2 .copy-hint { display: none; }
+    .container { padding: 0; max-width: none; }
+    a { color: #000; text-decoration: none; }
+    .chart-box { border-color: #000; }
+    .report-footer { background: none; padding: 14pt 0; }
+    .kv-grid, .footer-kv, .inline-kv { border-color: #000; }
+    .kv, .footer-kv > div, .inline-kv > div { border-color: #000; background: none; }
+    table.data tr.me { background: none; }
+    table.data tr.me td:first-child { border-left: 2pt solid #000; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  /* ========== 고령자 가독성 강화 (50-70대 1세대 대표) ========== */
+  :root { --muted: #565650; }           /* 흐린 회색 텍스트 대비 ↑ */
+  body { font-size: 18.5px; line-height: 1.7; }
+  .hero .eyebrow { font-size: 14px; letter-spacing: 0.1em; }
+  .hero .subtitle { font-size: clamp(18px, 1.8vw, 22px); color: #2a2a26; }
+  .kv dt { font-family: var(--font-body); font-size: 14px; letter-spacing: 0; text-transform: none; color: #565650; }
+  .kv dd { font-size: 26px; }
+  .sec h2 { font-size: clamp(25px, 3vw, 31px); }
+  .sec .hint { font-size: 16.5px; color: #565650; max-width: 70ch; }
+  .toc a { font-size: 15.5px; }
+  .col h3 { font-size: 13.5px; }
+  .col ul, .col li { font-size: 16.5px; }
+  .col li .v { font-size: 15.5px; }
+  table.data { font-size: 16.5px; }
+  table.data th { font-size: 13px; }
+  table.data th, table.data td { padding: 15px 16px; }
+  .hbar { font-size: 16.5px; }
+  .timeline .event { font-size: 17.5px; }
+  .timeline .yr { font-size: 14px; }
+  .hero-num .meta { font-size: 16.5px; }
+  .inline-kv dt { font-family: var(--font-body); font-size: 13.5px; letter-spacing: 0; text-transform: none; }
+  .sku-list .nm { font-size: 18px; }
+  .sm-grid h3 { font-size: 13.5px; }
+  .sm-pair .lbl, .sm-method-list, .co-list .nm { font-size: 15.5px; }
+  .co-list .v { font-size: 15px; }
+  .axis-x { font-size: 13px; }
+  .tags li { font-size: 15.5px; }
+  .tags li.t1 { font-size: 24px; }
+  .tags li.t2 { font-size: 19px; }
+  .tags li.t3 { font-size: 17px; }
+  .footer-kv dt { font-family: var(--font-body); font-size: 13px; letter-spacing: 0; text-transform: none; }
+  .footer-kv dd { font-size: 25px; }
+  .report-meta { font-size: 13px; text-transform: none; letter-spacing: 0; line-height: 1.7; }
+  /* 컬럼 좌측 중립 회색 액센트 (모노톤) */
+  .three-col .col, .two-col .col { box-shadow: inset 4px 0 0 var(--border-soft); padding-left: 16px; }
+
+  /* 기간 드롭다운 (모노톤) */
+  .period-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .period-row .period-label { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #565650; }
+  .period-sel { font-family: var(--font-body); font-size: 16px; font-weight: 600; color: #16140f; background: #fff; border: 1.5px solid #16140f; border-radius: 2px; padding: 7px 30px 7px 12px; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%2316140f' stroke-width='1.6' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 10px center; }
+  .period-sel:focus { outline: 2px solid #16140f; outline-offset: 2px; }
+  .index-period { margin: 0 0 22px; }
+
+  @media print {
+    .period-row, .index-period { display: none; }
+    body { font-size: 12pt; }
+    .sec .hint { font-size: 10.5pt; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <p class="eyebrow">시장조사 리포트 · 합성목재</p>
+    <h1>주식회사 우든테크</h1>
+    <p class="subtitle">합성목재 조달청 2026년 시장조사 · 납품요구 실거래 기준 · 2026 (2026-07-07 기준)</p>
+    <div class="period-row"><span class="period-label">조회 기간</span><select class="period-sel" aria-label="기간 선택" onchange="if(this.value)location.href=this.value"><option value="card-w5b2ee73ce.html">전체 (17년)</option><option value="card-w5b2ee73ce-5y.html">최근 5년</option><option value="card-w5b2ee73ce-1y.html" selected>2026년</option></select></div>
+  </div>
+  <div class="container" style="padding-top:0; padding-bottom:0;">
+    <dl class="kv-grid" aria-label="요약 지표">
+      <div class="kv"><dt>2026년 누적 매출</dt><dd>₩8,016만</dd></div>
+      <div class="kv"><dt>시장 점유 / 순위</dt><dd>0.6% · #36/61</dd></div>
+      <div class="kv"><dt>시장 평균 대비</dt><dd>0.4×</dd></div>
+      <div class="kv"><dt>첫 납품요구</dt><dd>2026-01-15</dd></div>
+      <div class="kv"><dt>거래 건수</dt><dd>11건</dd></div>
+      <div class="kv"><dt>거래 기관</dt><dd>9곳 · 4개 시도</dd></div>
+      <div class="kv"><dt>부재 종류</dt><dd>데크재</dd></div>
+      <div class="kv"><dt>종류 근거</dt><dd>납품요구명 보완 (일부 모델 보완)</dd></div>
+      <div class="kv"><dt>2026 연환산</dt><dd>₩1.6억</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="toc" aria-label="섹션 목차">
+  <div class="container">
+    <ol>
+      <li><a href="#sec-1"><span class="tnum">01</span>연도별 시장 순위</a></li>
+      <li><a href="#sec-2"><span class="tnum">02</span>연도별 매출</a></li>
+      <li><a href="#sec-3"><span class="tnum">03</span>누적 기관</a></li>
+      <li><a href="#sec-4"><span class="tnum">04</span>침투율</a></li>
+      <li><a href="#sec-5"><span class="tnum">05</span>충성 vs 휴면 기관</a></li>
+      <li><a href="#sec-6"><span class="tnum">06</span>업종 클러스터</a></li>
+      <li><a href="#sec-7"><span class="tnum">07</span>2026년 타임라인</a></li>
+      <li><a href="#sec-8"><span class="tnum">08</span>최대 단일 거래</a></li>
+      <li><a href="#sec-9"><span class="tnum">09</span>우수조달</a></li>
+      <li><a href="#sec-10"><span class="tnum">10</span>Top 3 SKU</a></li>
+      <li><a href="#sec-11"><span class="tnum">11</span>Top 기관 의존도</a></li>
+      <li><a href="#sec-12"><span class="tnum">12</span>영업 모델</a></li>
+      <li><a href="#sec-13"><span class="tnum">13</span>동급 비교</a></li>
+      <li><a href="#sec-14"><span class="tnum">14</span>키워드</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+  <section class="sec" id="sec-1" data-var="yearly_rank">
+    <div class="container">
+      <h2><span class="secnum">01</span>연도별 시장 순위<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">전체 시장 61곳 중 매출 순위 추이. 위로 갈수록 상위.</p>
+      <div class="chart-box"><svg viewBox="0 0 800 260" class="chart" preserveAspectRatio="xMidYMid meet" role="img"><g stroke="#e8e8e2" stroke-width="1"><line x1="50" y1="40" x2="780" y2="40"/><line x1="50" y1="100" x2="780" y2="100"/><line x1="50" y1="160" x2="780" y2="160"/><line x1="50" y1="220" x2="780" y2="220"/></g><line x1="50" y1="220" x2="780" y2="220" stroke="#0c0c09" stroke-width="1"/><g font-family="ui-monospace, monospace" font-size="11" fill="#6b6b66"><text x="44" y="44" text-anchor="end">#34</text><text x="44" y="104" text-anchor="end">#35</text><text x="44" y="164" text-anchor="end">#37</text><text x="44" y="224" text-anchor="end">#38</text></g><polyline fill="none" stroke="#0c0c09" stroke-width="2.2" points="50.0,130.0"/><g fill="#0c0c09"><circle cx="50.0" cy="130.0" r="3.5"/></g><g font-family="ui-monospace, monospace" font-size="11" fill="#0c0c09"><text x="58.0" y="124.0" text-anchor="start">#36</text><text x="44.0" y="124.0" text-anchor="end">#36</text></g></svg><ul class="axis-x few" aria-hidden="true"><li>2026</li></ul></div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-2" data-var="growth">
+    <div class="container">
+      <h2><span class="secnum">02</span>연도별 매출<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">납품요구 실거래의 cntrctDlvrReqDate와 prdctAmt 합산. 카탈로그 등록일(rgstDt) 기준 아님. 2026은 진행 중.</p>
+      <div class="chart-box"><svg viewBox="0 0 800 260" class="chart" preserveAspectRatio="xMidYMid meet" role="img"><g stroke="#e8e8e2" stroke-width="1"><line x1="50" y1="40" x2="780" y2="40"/><line x1="50" y1="100" x2="780" y2="100"/><line x1="50" y1="160" x2="780" y2="160"/></g><line x1="50" y1="220" x2="780" y2="220" stroke="#0c0c09" stroke-width="1"/><g font-family="ui-monospace, monospace" font-size="11" fill="#6b6b66"><text x="44" y="48" text-anchor="end">8,016만</text><text x="44" y="108" text-anchor="end">5,344만</text><text x="44" y="168" text-anchor="end">2,672만</text><text x="44" y="224" text-anchor="end">0</text></g><pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><rect width="6" height="6" fill="#0c0c09"/><line x1="0" y1="0" x2="0" y2="6" stroke="#fafaf6" stroke-width="2"/></pattern><rect x="398.0" y="40.0" width="34.0" height="180.0" fill="url(#hatch)"/></svg><ul class="axis-x few" aria-hidden="true"><li>2026</li></ul><p class="hint" style="margin-top:14px; font-size:12px;">사선 채움 = 진행 중 (2026 YTD).</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-3" data-var="institutions_growth">
+    <div class="container">
+      <h2><span class="secnum">03</span>누적 기관<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">납품요구 실거래가 한 번이라도 발생한 수요기관의 누적 수. 단위: 곳.</p>
+      <div class="chart-box"><svg viewBox="0 0 800 260" class="chart" preserveAspectRatio="xMidYMid meet" role="img"><g stroke="#e8e8e2" stroke-width="1"><line x1="50" y1="40" x2="780" y2="40"/><line x1="50" y1="100" x2="780" y2="100"/><line x1="50" y1="160" x2="780" y2="160"/><line x1="50" y1="220" x2="780" y2="220"/></g><g font-family="ui-monospace, monospace" font-size="11" fill="#6b6b66"><text x="44" y="48" text-anchor="end">9</text><text x="44" y="108" text-anchor="end">6</text><text x="44" y="168" text-anchor="end">3</text><text x="44" y="224" text-anchor="end">0</text></g><path fill="#0c0c09" fill-opacity="0.08" d="M50.0,40.0  L50.0,220 L50.0,220 Z"/><polyline fill="none" stroke="#0c0c09" stroke-width="2.2" points="50.0,40.0"/><g fill="#0c0c09"><circle cx="50.0" cy="40.0" r="3"/><circle cx="50.0" cy="40.0" r="4"/></g><g font-family="ui-monospace, monospace" font-size="11" fill="#0c0c09"><text x="58.0" y="34.0" text-anchor="start">9곳</text><text x="44.0" y="32.0" text-anchor="end">9곳</text></g></svg><ul class="axis-x few" aria-hidden="true"><li>2026</li></ul></div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-4" data-var="penetration">
+    <div class="container">
+      <h2><span class="secnum">04</span>침투율<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">기준: 시장 누적 발주 ₩1억+ &amp; 5건+ 기관 15곳. 기관별 당사 점유.</p>
+      <div class="three-col">
+        <div class="col"><h3>영토 <span class="count">0곳 · 50%+</span></h3><ul><li><span class="nm">해당 기관 없음</span></li></ul></div>
+        <div class="col"><h3>부분 <span class="count">1곳 · 5–50%</span></h3><ul><li><span class="nm">경기도 성남시 푸른도시사업소</span><span class="v">6.55%</span></li></ul></div>
+        <div class="col"><h3>미진입 <span class="count">10곳 · 0%</span></h3><ul><li><span class="nm">강원특별자치도 춘천시</span><span class="v">0.0%</span></li><li><span class="nm">충청북도 보은군</span><span class="v">0.0%</span></li><li><span class="nm">울산광역시 울주군</span><span class="v">0.0%</span></li><li><span class="nm">부산광역시 낙동강관리본부</span><span class="v">0.0%</span></li><li><span class="nm">경상남도 김해시</span><span class="v">0.0%</span></li><li><span class="nm">강원특별자치도 원주시</span><span class="v">0.0%</span></li><li><span class="nm">부산광역시 기장군</span><span class="v">0.0%</span></li><li><span class="nm">전북특별자치도 군산시</span><span class="v">0.0%</span></li><li><span class="nm">경기도 포천시</span><span class="v">0.0%</span></li><li><span class="nm">제주특별자치도 제주시</span><span class="v">0.0%</span></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-5" data-var="loyal_institutions,dormant_institutions">
+    <div class="container">
+      <h2><span class="secnum">05</span>충성 vs 휴면 기관<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">충성 = 최근 거래 유지. 휴면 = 3년+ 무거래. (5회+ 거래 기관 중)</p>
+      <div class="two-col">
+        <div class="col"><h3>충성 기관 <span class="count">0곳</span></h3><ul><li><span class="nm">해당 없음</span></li></ul></div>
+        <div class="col"><h3>휴면 기관 <span class="count">0곳</span></h3><ul><li><span class="nm">해당 없음</span></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-6" data-var="business_types">
+    <div class="container">
+      <h2><span class="secnum">06</span>업종 클러스터<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">거래처 기관의 업종 분포 (전체 거래 11건 기준).</p>
+      <ul class="hbar-list"><li class="hbar"><span class="name">도로/시설</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="val">3건 · 53.7%</span></li><li class="hbar"><span class="name">공원/조경</span><span class="track"><span class="fill" style="width:51.4%"></span></span><span class="val">2건 · 27.6%</span></li><li class="hbar"><span class="name">기타</span><span class="track"><span class="fill" style="width:17.1%"></span></span><span class="val">1건 · 9.2%</span></li><li class="hbar"><span class="name">하천/수변</span><span class="track"><span class="fill" style="width:8.9%"></span></span><span class="val">1건 · 4.8%</span></li><li class="hbar"><span class="name">체육/문화</span><span class="track"><span class="fill" style="width:8.4%"></span></span><span class="val">1건 · 4.5%</span></li><li class="hbar"><span class="name">주거/공동</span><span class="track"><span class="fill" style="width:0.6%"></span></span><span class="val">3건 · 0.3%</span></li></ul>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-7" data-var="timeline_events">
+    <div class="container">
+      <h2><span class="secnum">07</span>2026년 타임라인<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">첫 거래는 IntlCntrctDlvrReqDate 우선, 없으면 cntrctDlvrReqDate를 사용한 납품요구 실거래 기준.</p>
+      <ul class="timeline"><li><div class="yr">2026-01-15</div><div class="event">첫 거래</div></li><li><div class="yr">2026-01-30</div><div class="event">충청남도 첫 진출</div></li><li><div class="yr">2026-04-23</div><div class="event">최대 거래 ₩23,358,000 — 석성면 군도19호 정비사업 관급-합성목재, 울타리</div></li><li><div class="yr">2026-04-29</div><div class="event">경기도 첫 진출</div></li><li><div class="yr">2026-05-10</div><div class="event">대전광역시 첫 진출</div></li></ul>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-8" data-var="biggest_deal">
+    <div class="container">
+      <h2><span class="secnum">08</span>최대 단일 거래<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">2026년 체결된 단일 계약 중 최고 금액.</p>
+      <div class="hero-num">
+        <div class="v">₩2,336만</div>
+        <div class="meta"><div><span class="lbl">기관</span><b>충청남도 부여군</b></div><div><span class="lbl">계약일</span>2026-04-23</div><div><span class="lbl">품목</span>합성목재, 우든테크, WT-2515S, 2400×150×25mm, 솔리드형</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-9" data-var="excellence">
+    <div class="container">
+      <h2><span class="secnum">09</span>우수조달<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">조달청 우수조달물품 지정 현황.</p>
+      <p class="hint">우수조달물품 지정 이력 없음.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-10" data-var="top_skus">
+    <div class="container">
+      <h2><span class="secnum">10</span>Top 3 SKU<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">매출 기준 상위 3개 품목.</p>
+      <ol class="sku-list"><li><span class="rk">01</span><span class="nm">합성목재, 우든테크, WT-2515S, 2400×150×25mm, 솔리드형</span><span class="rev">₩7,993만</span></li><li><span class="rk">02</span><span class="nm">합성목재, 우든테크, WT-3215S, 2400×150×32mm, 솔리드형</span><span class="rev">₩23만</span></li></ol>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-11" data-var="top_inst_dependency">
+    <div class="container">
+      <h2><span class="secnum">11</span>Top 기관 의존도<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">2026년 누적 매출 대비 최대 의존 기관 비중.</p>
+      <div class="hero-num"><div class="v">29.1%</div><div class="meta"><div><span class="lbl">최대 의존 기관</span><b>충청남도 부여군</b></div><div>2026년 누적 매출 중 이 기관 한 곳이 차지하는 비중</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-12" data-var="contracts,contract_methods,quarterly,change_order_share_pct">
+    <div class="container">
+      <h2><span class="secnum">12</span>영업 모델<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">단가계약 활성도, 체결 방식, 분기 매출 비중, 변경 계약 비중.</p>
+      <div class="sm-grid">
+        <div>
+          <h3>단가계약 — 활성 / 휴면</h3>
+          <div class="sm-pair">
+            <div><div class="lbl">Active</div><div class="n">1</div></div>
+            <div><div class="lbl">Cooling</div><div class="n">0</div></div>
+            <div><div class="lbl">Dormant</div><div class="n">0</div></div>
+            <div><div class="lbl">합계</div><div class="n">1</div></div>
+          </div>
+        </div>
+        <div>
+          <h3>계약 방식</h3>
+          <ul class="sm-method-list"><li><span>제한경쟁</span><span class="v">100.0% · ₩8,016만</span></li></ul>
+        </div>
+        <div>
+          <h3>분기별 매출 비중</h3>
+          <div class="sm-pair"><div><div class="lbl">Q1</div><div class="n">34.0%</div></div><div><div class="lbl">Q2</div><div class="n">66.0%</div></div><div><div class="lbl">Q3</div><div class="n">0.0%</div></div><div><div class="lbl">Q4</div><div class="n">0.0%</div></div></div>
+        </div>
+        <div>
+          <h3>변경 계약 비중</h3>
+          <div class="sm-big">18.2%</div>
+          <div class="lbl" style="margin-top:8px; font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted);">총 11건 중 변경 계약 비율 (낮을수록 안정)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-13" data-var="peer_compare,co_competitors">
+    <div class="container">
+      <h2><span class="secnum">13</span>동급 비교<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">시장 순위 ±3 구간의 동급 업체. 음영 + 좌측 라인 = 당사.</p>
+      <div class="table-wrap">
+        <table class="data" aria-label="동급 비교 ±3 순위">
+          <thead><tr><th>순위</th><th>업체</th><th class="num">17년 누적 매출</th><th class="num">본인 대비</th></tr></thead>
+          <tbody><tr><td>#34</td><td>주식회사포나코</td><td class="num">₩8,513만</td><td class="num">1.06×</td></tr><tr><td>#35</td><td>주식회사 우드맥스</td><td class="num">₩8,501만</td><td class="num">1.06×</td></tr><tr class="me"><td>#36</td><td>주식회사 우든테크</td><td class="num">₩8,016만</td><td class="num">—</td></tr><tr><td>#37</td><td>금강우드(합자)</td><td class="num">₩7,643만</td><td class="num">0.95×</td></tr><tr><td>#38</td><td>주식회사 스틸엔우드</td><td class="num">₩7,206만</td><td class="num">0.9×</td></tr><tr><td>#39</td><td>유풍산업</td><td class="num">₩7,142만</td><td class="num">0.89×</td></tr></tbody>
+        </table>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="sec" id="sec-14" data-var="keywords">
+    <div class="container">
+      <h2><span class="secnum">14</span>키워드<span class="copy-hint">클릭 → 링크 복사</span></h2>
+      <p class="hint">거래 내역·품명·발주 기관 명칭에서 빈도 상위 15개.</p>
+      <ul class="tags"><li class="t1">관급자재</li><li class="t1">합성목재</li><li class="t2">문산면</li><li class="t2">금복</li><li class="t2">마을만들기</li><li class="t3">정비공사</li><li class="t3">관급</li><li class="t3">설치공사</li><li class="t3">합천소방서</li><li>대병</li><li>구급지원센터</li><li>신축공사</li><li>건축</li><li>밝은누리관</li><li>데크시설</li></ul>
+    </div>
+  </section>
+</main>
+
+<footer class="report-footer">
+  <div class="container">
+    <dl class="footer-kv" aria-label="시장 기준치">
+      <div><dt>시장 총액 (17년)</dt><dd>₩132.9억</dd></div>
+      <div><dt>시장 회사 수</dt><dd>61개</dd></div>
+      <div><dt>eligible 기관</dt><dd>15곳</dd></div>
+    </dl>
+    <p class="report-meta">
+      집계 기간 2026-01-01 ~ 2026-07-07 · 출처: 조달청 나라장터 ShoppingMallPrdctInfoService getSpcifyPrdlstPrcureInfoList · 단위: 매출 KRW, 기관 곳, 거래 건<br>
+      성장/진입 기준은 납품요구 실거래 행이며, 카탈로그 등록일(rgstDt)이나 법인 설립일을 사용하지 않음.
+    </p>
+    <a class="nav-back" href="index.html">← 전체 목록</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var headings = document.querySelectorAll('.sec > .container > h2');
+    headings.forEach(function (h) {
+      h.setAttribute('role', 'button');
+      h.setAttribute('tabindex', '0');
+      var sec = h.closest('.sec');
+      if (sec && sec.id) {
+        h.setAttribute('aria-label', h.textContent.replace('클릭 → 링크 복사', '').trim() + ' — 클릭해 링크를 복사하세요');
+      }
+      var doCopy = function () {
+        if (!sec || !sec.id) return;
+        var url = location.origin + location.pathname + '#' + sec.id;
+        var hint = h.querySelector('.copy-hint');
+        var prev = hint ? hint.textContent : '';
+        var done = function () {
+          h.classList.add('copied');
+          if (hint) hint.textContent = '복사됨';
+          setTimeout(function () {
+            h.classList.remove('copied');
+            if (hint) hint.textContent = prev || '클릭 → 링크 복사';
+          }, 1400);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done, function () {
+            try {
+              var ta = document.createElement('textarea');
+              ta.value = url; document.body.appendChild(ta); ta.select();
+              document.execCommand('copy'); document.body.removeChild(ta); done();
+            } catch (e) {}
+          });
+        } else {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = url; document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta); done();
+          } catch (e) {}
+        }
+      };
+      h.addEventListener('click', doCopy);
+      h.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doCopy(); }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
